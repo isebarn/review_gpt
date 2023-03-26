@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['SERP_API_KEY'] = os.getenv("SERP_API_KEY", "80f5e91dc40dcc22be05add1f7bf03f2e42eaee3b73abe535f323d32447d4389")
+app.config['SERP_API_KEY'] = os.getenv("SERP_API_KEY")
 
 # use sqlite for development
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
