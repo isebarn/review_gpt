@@ -38,7 +38,7 @@ def login(email, password):
 
 # get_product_summary uses get_reviews to get the top num reviews for a product
 # and then uses openai to generate a summary of the reviews
-def get_summary(package_name, num=40):
+def get_summary(package_name, num=10):
 
     # check if the app is already in the database
     if app:= App.query.filter_by(package_name=package_name).first():
@@ -76,4 +76,4 @@ def get_summary(package_name, num=40):
     # commit the changes to the database
     db.session.commit()
 
-    return summary
+    return summary.summary

@@ -4,7 +4,7 @@ from requests import get
 SERP_API_URL = "https://serpapi.com/search.json"
 
 # get data from google search reviews
-def get_reviews(package_name, num=40):
+def get_reviews(package_name, num=10):
     params = {
         "engine": "google_play_product",
         "store": "apps",

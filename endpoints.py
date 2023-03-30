@@ -31,5 +31,5 @@ def login():
 @jwt_required()
 def summary():
     product_id = request.args.get('product_id')
-    num = request.args.get('num', 40)
+    num = request.args.get('num', 10)
     return jsonify(repository.get_summary(product_id, num))
