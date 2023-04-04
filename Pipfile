@@ -12,6 +12,8 @@ flask-cors = "*"
 flask-jwt-extended = "*"
 openai = "*"
 gunicorn = "*"
+pytest-flask = "*"
+flask-restx = "*"
 
 [dev-packages]
 

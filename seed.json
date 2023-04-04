@@ -1,0 +1,36 @@
+{
+    "quick_prompt": {
+        "Overall satisfaction": {
+            "description": "How satisfied are users with the app? What is the average rating, and how does it change over time?",
+            "prompt": "Calculate the average user rating and identify trends in satisfaction levels over the past year."
+        },
+        "Feature feedback": {
+            "description": "Which features do users love, and which ones need improvement? Are there any missing features that users consistently request?",
+            "prompt": "Identify the top 5 most praised features and the top 5 features that need improvement based on user reviews."
+        },
+        "Performance issues": {
+            "description": "Are users experiencing technical issues or performance problems, such as crashes, slow loading times, or unresponsiveness?",
+            "prompt": "Find reviews mentioning performance issues, crashes, or slow loading times and summarize the most common problems."
+        },
+        "Usability and design": {
+            "description": "How do users feel about the app’s user interface and overall design? Are there any elements that cause confusion or frustration?",
+            "prompt": "Analyze user feedback on the app’s user interface and design, and identify any areas that could be improved for better usability."
+        },
+        "Customer support": {
+            "description": "Are users satisfied with the customer support provided by the app developers? Are their concerns addressed promptly and effectively?",
+            "prompt": "Evaluate user satisfaction with customer support and identify any recurring issues or areas for improvement."
+        },
+        "Comparison to competitors": {
+            "description": "How does the app compare to its competitors? What features or aspects make it stand out, and where does it fall short?",
+            "prompt": "Compare the app to its top 3 competitors based on user reviews and highlight the app’s strengths and weaknesses."
+        },
+        "Demographic preferences": {
+            "description": "Are there any differences in user preferences or satisfaction levels based on demographic factors, such as age, gender, or location?",
+            "prompt": "Investigate any demographic trends in user preferences or satisfaction levels and summarize the key findings."
+        },
+        "Update impact": {
+            "description": "How do users respond to updates and new features? Do they appreciate the changes, or do they cause confusion and frustration?",
+            "prompt": "Analyze user feedback following major app updates and identify the most positively and negatively received changes."
+        }
+    }
+}
