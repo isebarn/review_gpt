@@ -14,7 +14,11 @@ def post_reviews(user, product_id, reviews):
     product = get_product(user, product_id)
 
     for review in reviews:
-        new_review = Review(**review, product_id=product.id)
+        review_id = review['avatar'].split('/')[-1]
+        if Review.query.filter_by(review_id=review_id, product_id=product.id).first():
+            continue
+
+        new_review = Review(**review, review_id=review['avatar'].split('/')[-1], product_id=product.id)
         db.session.add(new_review)
         db.session.commit()
 

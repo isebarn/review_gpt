@@ -53,6 +53,7 @@ class Product(db.Model):
 class Review(db.Model):
     id: int
     product_id: int
+    review_id: str
     avatar: str
     date: str
     likes: str
@@ -62,12 +63,16 @@ class Review(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
+    review_id = db.Column(db.String(500), nullable=False)
     avatar = db.Column(db.String(500), nullable=False)
     date = db.Column(db.String(500), nullable=False)
     likes = db.Column(db.String(500), nullable=False)
     rating = db.Column(db.String(500), nullable=False)
     snippet = db.Column(db.String(5000), nullable=False)
     title = db.Column(db.String(500), nullable=False)
+
+    # review_id and product_id are unique together
+    __table_args__ = (db.UniqueConstraint('review_id', 'product_id', name='_review_product_uc'),)
 
 @dataclass
 class ReviewSummary(db.Model):
