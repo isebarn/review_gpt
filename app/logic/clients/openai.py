@@ -1,4 +1,6 @@
 import openai
+from models import Review
+from app import db
 from app.logic.commands.reviews import get_reviews
 import app
 openai.api_key = app.Config.OPENAI_API_KEY
@@ -22,3 +24,18 @@ def summarize_reviews(user, product_id, prompt):
         prompt += review.snippet + "\n"
 
     return open_ai_summary(prompt)
+
+def answer_reviews(reviews):
+    # find all the reviews from the review.id
+    review_ids = [review['id'] for review in reviews]
+    reviews = Review.query.filter(Review.id.in_(review_ids)).all()
+
+    for review in reviews:
+        review_prompt = f"Answer the following review: {review.snippet}"
+        review.answer = open_ai_summary(review_prompt)
+
+        # update the review in the db
+    
+    db.session.commit()
+
+    return reviews

@@ -29,7 +29,8 @@ review = api.model('Review', {
     'rating': fields.String(required=True, description='rating'),
     'snippet': fields.String(required=True, description='snippet'),
     'likes': fields.String(required=True, description='likes'),
-    'date': fields.String(required=True, description='date')
+    'date': fields.String(required=True, description='date'),
+    "answer": fields.String(required=True, description='answer')
 })
 
 

@@ -60,6 +60,7 @@ class Review(db.Model):
     rating: str
     snippet: str
     title: str
+    answer: str
 
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
@@ -70,6 +71,7 @@ class Review(db.Model):
     rating = db.Column(db.String(500), nullable=False)
     snippet = db.Column(db.String(5000), nullable=False)
     title = db.Column(db.String(500), nullable=False)
+    answer = db.Column(db.String(5000), nullable=True)
 
     # review_id and product_id are unique together
     __table_args__ = (db.UniqueConstraint('review_id', 'product_id', name='_review_product_uc'),)
