@@ -34,14 +34,14 @@ class Product(db.Model):
     user_id: int
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(500), nullable=False)
-    link = db.Column(db.String(500), nullable=False)
-    product_id = db.Column(db.String(500), nullable=False)
-    serpapi_link = db.Column(db.String(500), nullable=False)
-    rating = db.Column(db.String(500), nullable=False)
-    author = db.Column(db.String(500), nullable=False)
-    video = db.Column(db.String(500), nullable=False)
-    thumbnail = db.Column(db.String(500), nullable=False)
+    title = db.Column(db.String(500), nullable=True)
+    link = db.Column(db.String(500), nullable=True)
+    product_id = db.Column(db.String(500), nullable=True)
+    serpapi_link = db.Column(db.String(500), nullable=True)
+    rating = db.Column(db.String(500), nullable=True)
+    author = db.Column(db.String(500), nullable=True)
+    video = db.Column(db.String(500), nullable=True)
+    thumbnail = db.Column(db.String(500), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     # product_id and user_id are unique together

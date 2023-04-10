@@ -20,7 +20,7 @@ def search_product(search):
 
 
 # get data from google search reviews
-def get_reviews(product_id, num=10):
+def get_reviews(product_id, num=100):
     params = {
         "engine": "google_play_product",
         "store": "apps",
