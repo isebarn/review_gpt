@@ -15,6 +15,7 @@ gunicorn = "*"
 pytest-flask = "*"
 flask-restx = "*"
 tiktoken = "*"
+textblob = "*"
 
 [dev-packages]
 

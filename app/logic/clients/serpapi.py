@@ -1,6 +1,8 @@
+from datetime import datetime
 import app.logic.commands.product as product
 from requests import get
 import app
+from textblob import TextBlob
 
 SERP_API_URL = "https://serpapi.com/search.json"
 
@@ -32,4 +34,16 @@ def get_reviews(product_id, num=100):
     
     search = get(SERP_API_URL, params=params)
     results = search.json()
+
+    # convert every item['date'] in results from 'April 10, 2023'  to iso string
+    for item in results['reviews']:
+        dt = datetime.strptime(item['date'], '%B %d, %Y')
+        isostr = dt.isoformat()  
+        item['date'] = isostr
+
+    # get sentiment for every review
+    for item in results['reviews']:
+        blob = TextBlob(item['snippet'])
+        item['sentiment'] = sum([sentence.sentiment.polarity for sentence in blob.sentences]) / len(blob.sentences)
+
     return results

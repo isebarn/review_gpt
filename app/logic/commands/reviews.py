@@ -1,6 +1,7 @@
 from models import Product, Review
 from models import db
 from app.logic.queries.product import get_product
+from datetime import datetime
 
 # get all reviews for an product
 def get_reviews(user, product_id):
@@ -14,6 +15,11 @@ def post_reviews(user, product_id, reviews):
     product = get_product(user, product_id)
 
     for review in reviews:
+
+        # convert isostring to datetime
+        dt = datetime.fromisoformat(review['date'])
+        review['date'] = dt
+
         review_id = review['avatar'].split('/')[-1]
         if Review.query.filter_by(review_id=review_id, product_id=product.id).first():
             continue

@@ -29,7 +29,8 @@ review = api.model('Review', {
     'rating': fields.String(required=True, description='rating'),
     'snippet': fields.String(required=True, description='snippet'),
     'likes': fields.String(required=True, description='likes'),
-    'date': fields.String(required=True, description='date')
+    'date': fields.String(required=True, description='date'),
+    'sentiment': fields.Float(required=False, description='sentiment')
 })
 
 
@@ -63,7 +64,8 @@ class Reviews(Resource):
         """Get data from google search reviews"""
         user = User.query.filter_by(email=get_jwt_identity()).first()
         if product := get_product(user, product_id):
-            return get_reviews(product.product_id).get('reviews', [])
+            asd = get_reviews(product.product_id).get('reviews', [])
+            return asd
 
         return {'message': 'product is required'}, 400
         

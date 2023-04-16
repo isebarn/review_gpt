@@ -7,6 +7,7 @@ from app.logic.commands.authentication import bcrypt
 from app.logic.commands.authentication import jwt
 from config import Config
 from app.api import api
+from textblob import download_corpora
 
 
 def create_app(config_class=Config):
@@ -28,6 +29,9 @@ def create_app(config_class=Config):
     admin.add_view(ModelView(ReviewSummary, db.session))
     admin.add_view(ModelView(ProductMessage, db.session))   
     admin.add_view(ModelView(QuickPrompt, db.session))
+
+    # download textblob corpora
+    download_corpora.download_all()
 
     with app.app_context():
         db.create_all()
