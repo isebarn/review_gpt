@@ -31,7 +31,7 @@ def create_app(config_class=Config):
     admin.add_view(ModelView(QuickPrompt, db.session))
 
     # download textblob corpora
-    download_corpora.download_all()
+    #download_corpora.download_all()
 
     with app.app_context():
         db.create_all()
